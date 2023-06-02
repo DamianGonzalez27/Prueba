@@ -109,4 +109,31 @@ Los repositorios implementan abstracciones con `Eloquent` y `EloquentFilter` de 
 
 Para la aplicación de los filtros se implementa en cada modelo la dependencia `EloquentFilter`, con la cual se pueden personalizar filtros de busqueda.
 
+## Endpoints
+
+### GET /api/products
+http://localhost/api/products?name=nuevo&range=%7B%0A%09%22min%22%3A%202,%0A%09%22max%22%3A%2050%0A%7D&sku=pro-896cto
+
+Los filtros de busqueda se envían por medio de parámetros en la url
+
+### POST /api/products
+http://localhost/api/products
+
+Recibe un objeto en formato json con las siguientes caracteristicas:
+
+```JSON
+{
+	"name": "Nuevo producto",
+	"description": "Esto es un nuevo producto",
+	"price": 1900,
+	"quantity": 12,
+	"image": "https://www.lacostena.com.mx/media/uploads/Logos/portada_mayonesas.png"
+}
+```
+
+### DELETE /api/products/{id}
+http://localhost/api/products/16
+
+Elimina de forma lógica un producto por medio de su id
+
 By: Erick Damian Gonzalez Aranda
